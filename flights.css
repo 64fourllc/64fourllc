@@ -1,0 +1,35 @@
+html {
+  font-family: arial;
+  font-size: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #e0ffe0;
+}
+
+a:link {
+  color: blue;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: blue;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: blue;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  font-size: 20px;
+  text-decoration: none;
+}
