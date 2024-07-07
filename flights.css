@@ -3,8 +3,12 @@ html {
   font-size: 20px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
     background-color: #e0ffe0;
+}
+
+th {
+    background-color: #ffe0e0;
 }
 
 a:link {
