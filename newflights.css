@@ -1,0 +1,20 @@
+/* Flex container */
+.flights-container {
+    display: flex; /* Activate flexbox layout */
+    flex-direction: column;
+    gap: 10px; /* Space between items */
+    border: 2px solid black;
+    padding: 10px;
+}
+
+/* Flex items */
+.airport {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid navy;
+}
+
+.hidden {
+    display: none;
+}
