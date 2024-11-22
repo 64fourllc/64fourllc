@@ -39,19 +39,52 @@
 }
 
 /* Right-aligned links */
-.airport-links {
+.airport-departure-links {
     display: flex;
+    gap: 10px; /* Space between the links */
+}
+.airport-arrival-links {
+    display: none;
     gap: 10px; /* Space between the links */
 }
 
 /* Links styling */
-.airport-links a {
+.airport-departure-links a {
     text-decoration: none;
     color: #007BFF;
     font-weight: bold;
 }
 
-.airport-links a:hover {
+.airport-departure-links a:hover {
+    text-decoration: underline;
+}
+.airport-arrival-links a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.airport-arrival-links a:hover {
     text-decoration: underline;
 }
 
+.toggle-button {
+    padding: 5px 15px;
+    width: 120px;
+    font-size: 12px;
+    border: 2px solid #0073e6;
+    border-radius: 5px;
+    background-color: #0073e6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .toggle-button.arrivals {
+    background-color: #4caf50;
+    border-color: #4caf50;
+  }
+  
+  .toggle-button:hover {
+    opacity: 0.8;
+  }

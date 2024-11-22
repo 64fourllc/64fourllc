@@ -201,7 +201,7 @@ airports.forEach((airport) => {
     // Departures
     let airportLinksDiv = document.createElement("div");
     // airportLinksDiv.textContent = 'Departures: ';
-    airportLinksDiv.setAttribute("class", "airport-links");
+    airportLinksDiv.setAttribute("class", "airport-departure-links");
     airportLinkSetDiv.appendChild(airportLinksDiv);
   
     let word1 = document.createElement('span');
@@ -218,10 +218,9 @@ airports.forEach((airport) => {
     })
 
     // Arrivals
-    // airportLinksDiv = document.createElement("div");
-    // airportLinksDiv.textContent = 'Arrivals: ';
-   //  airportLinksDiv.setAttribute("class", "airport-links");
-    // airportLinkSetDiv.appendChild(airportLinksDiv);
+    airportLinksDiv = document.createElement("div");
+    airportLinksDiv.setAttribute("class", "airport-arrival-links");
+    airportLinkSetDiv.appendChild(airportLinksDiv);
  
     word1 = document.createElement('span');
     word1.textContent = 'Arrivals: '; // Add the preceding word
@@ -281,6 +280,43 @@ inputField.addEventListener("input", function (event) {
         }
     });
 
+});
+
+// Get the button element
+const toggleButton = document.getElementById('toggleButton');
+
+// Event listener for button click
+toggleButton.addEventListener('click', () => {
+  // Check the current state and toggle
+  if (toggleButton.textContent === 'Departures') {
+    toggleButton.textContent = 'Arrivals';
+    toggleButton.classList.add('arrivals'); // Change style
+  } else {
+    toggleButton.textContent = 'Departures';
+    toggleButton.classList.remove('arrivals'); // Revert style
+  }
+
+  let departureLinks = document.querySelectorAll('.airport-departure-links');
+  departureLinks.forEach((element) => {
+      if (toggleButton.textContent == 'Arrivals') {
+          element.style.display = 'none';
+      }
+      else {
+          element.style.display = 'flex';
+      }
+  });
+
+    let arrivalLinks = document.querySelectorAll('.airport-arrival-links');
+    arrivalLinks.forEach((element) => {
+        if (toggleButton.textContent == 'Departures') {
+            element.style.display = 'none';
+        }
+        else {
+            element.style.display = 'flex';
+        }
+    });
+  // Log or handle the event (replace this with your custom logic)
+    
 });
 
 
