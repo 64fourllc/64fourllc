@@ -200,10 +200,14 @@ airports.forEach((airport) => {
 
     // Departures
     let airportLinksDiv = document.createElement("div");
-    airportLinksDiv.textContent = 'Departures: ';
+    // airportLinksDiv.textContent = 'Departures: ';
     airportLinksDiv.setAttribute("class", "airport-links");
     airportLinkSetDiv.appendChild(airportLinksDiv);
-
+  
+    let word1 = document.createElement('span');
+    word1.textContent = 'Departures: '; // Add the preceding word
+    airportLinksDiv.appendChild(word1);
+  
     airport.airlines.forEach((airline) => {
         const airportLink = document.createElement("a");
         airportLink.href = "https://www.google.com/search?q=flight+status+" + airline + "+MSP+" + airport.code;
@@ -214,11 +218,15 @@ airports.forEach((airport) => {
     })
 
     // Arrivals
-    airportLinksDiv = document.createElement("div");
-    airportLinksDiv.textContent = 'Arrivals: ';
-    airportLinksDiv.setAttribute("class", "airport-links");
-    airportLinkSetDiv.appendChild(airportLinksDiv);
-
+    // airportLinksDiv = document.createElement("div");
+    // airportLinksDiv.textContent = 'Arrivals: ';
+   //  airportLinksDiv.setAttribute("class", "airport-links");
+    // airportLinkSetDiv.appendChild(airportLinksDiv);
+ 
+    word1 = document.createElement('span');
+    word1.textContent = 'Arrivals: '; // Add the preceding word
+    airportLinksDiv.appendChild(word1);
+ 
     airport.airlines.forEach((airline) => {
         const airportLink = document.createElement("a");
         airportLink.href = "https://www.google.com/search?q=flight+status+" + airline + "+" + airport.code + "+MSP";

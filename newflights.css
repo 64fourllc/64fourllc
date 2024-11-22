@@ -15,8 +15,9 @@
 /* Each row (airport) */
 .airport-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-around; /* Space between name and links */
-    align-items: center; /* Align items vertically */
+    align-items: left; /* Align items vertically */
     border-bottom: 1px solid #ccc; /* Optional: underline for each row */
     padding: 10px 0;
 }
@@ -31,7 +32,10 @@
 .airport-link-set {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    color: lightgrey;
+    font-style: italic;
+    padding: 10px 0px 10px 0px;
 }
 
 /* Right-aligned links */
