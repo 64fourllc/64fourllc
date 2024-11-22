@@ -24,7 +24,7 @@ const airportData = [
     { code: "YYC", name: "Calgary, Canada", airlines: ["DL"], shortName: "Calgary" },
     { code: "CUN", name: "Cancun, Mexico", airlines: ["DL", "SY"], shortName: "Cancun" },
     { code: "CID", name: "Cedar Rapids, Iowa", airlines: ["DL"], shortName: "Cedar Rapids" },
-    { code: "CWA", name: "Central Wisconsin", airlines: ["DL"], shortName: "Central WI" },
+    { code: "CWA", name: "Central Wisconsin (Wausau & Stevens Point)", airlines: ["DL"], shortName: "Central WI" },
     { code: "CHS", name: "Charleston, South Carolina", airlines: ["DL"], shortName: "Charleston" },
     { code: "CLT", name: "Charlotte, North Carolina", airlines: ["DL", "AA"], shortName: "Charlotte" },
     { code: "MDW", name: "Chicago, Illinois: Midway", airlines: ["DL", "WN"], shortName: "Chi Midway" },
@@ -179,46 +179,69 @@ let flightDiv;
 let link;
 let airlineSpan;
 
+
+const airportListDiv = document.getElementById("airport-list");
+
 airports.forEach((airport) => {
-    flightDiv = document.createElement("div");
-    flightDiv.id = airport.shortName;
-    flightDiv.setAttribute("class", "airport");
-    flightDiv.textContent = airport.name + " [" + airport.code + "]";
-    flightListDiv.appendChild(flightDiv);
+
+    const airportItemDiv = document.createElement("div");
+    airportItemDiv.id = airport.shortName;
+    airportItemDiv.setAttribute("class", "airport-item");
+    airportListDiv.appendChild(airportItemDiv);
+
+    const airportNameDiv = document.createElement("div");
+    airportNameDiv.setAttribute("class", "airport-name");
+    airportNameDiv.textContent = airport.name + " [" + airport.code + "]";
+    airportItemDiv.appendChild(airportNameDiv);
+
+    const airportLinkSetDiv = document.createElement("div");
+    airportLinkSetDiv.setAttribute("class", "airport-link-set");
+    airportItemDiv.appendChild(airportLinkSetDiv);
+
+    // Departures
+    let airportLinksDiv = document.createElement("div");
+    airportLinksDiv.textContent = 'Departures: ';
+    airportLinksDiv.setAttribute("class", "airport-links");
+    airportLinkSetDiv.appendChild(airportLinksDiv);
 
     airport.airlines.forEach((airline) => {
-        flightDiv.appendChild(document.createTextNode(" "));
-        airlineSpan = document.createElement("span");
-        airlineSpan.setAttribute("class", "AirlineLink");
-        flightDiv.appendChild(airlineSpan);        
-        link = document.createElement("a");
-        link.href = "https://www.google.com/search?q=flight+status+" + airline + "+MSP+" + airport.code;
-        link.textContent = airline;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        airlineSpan.appendChild(link);
-        if (airline == "UA") {
-            flightDiv.classList.remove("hidden");
-        }
+        const airportLink = document.createElement("a");
+        airportLink.href = "https://www.google.com/search?q=flight+status+" + airline + "+MSP+" + airport.code;
+        airportLink.textContent = airline;
+        airportLink.target = "_blank";
+        airportLink.rel = "noopener noreferrer";
+        airportLinksDiv.appendChild(airportLink);
+    })
+
+    // Arrivals
+    airportLinksDiv = document.createElement("div");
+    airportLinksDiv.textContent = 'Arrivals: ';
+    airportLinksDiv.setAttribute("class", "airport-links");
+    airportLinkSetDiv.appendChild(airportLinksDiv);
+
+    airport.airlines.forEach((airline) => {
+        const airportLink = document.createElement("a");
+        airportLink.href = "https://www.google.com/search?q=flight+status+" + airline + "+" + airport.code + "+MSP";
+        airportLink.textContent = airline;
+        airportLink.target = "_blank";
+        airportLink.rel = "noopener noreferrer";
+        airportLinksDiv.appendChild(airportLink);
     })
 
 })
 
 // Get the input field and output paragraph
 const inputField = document.getElementById("filterInput");
-const output = document.getElementById("output");
 
 let lowerCaseInput;
 let foundFlag;
 
 // Add an event listener for the 'input' event
 inputField.addEventListener("input", function (event) {
-    // Display the current value of the input field
-    output.textContent = "You typed: " + event.target.value;
     if (event.target.value == "") {
         airports.forEach((airport) => {
             flightDiv = document.getElementById(airport.shortName);
-            flightDiv.classList.remove("hidden");
+            flightDiv.style.display = 'flex';
         });   
         return;       
     }
@@ -241,17 +264,15 @@ inputField.addEventListener("input", function (event) {
                 }
             });    
         }
+
         if (foundFlag) {
-            flightDiv.classList.remove("hidden");
+            flightDiv.style.display = 'flex';
         }
         else {
-            flightDiv.classList.add("hidden");
+            flightDiv.style.display = 'none';
         }
-            
     });
 
 });
-// flightDiv.classList.remove("hidden");
-// document.getElementById("myDiv").style.display = "none";
 
 

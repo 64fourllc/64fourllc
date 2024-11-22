@@ -1,20 +1,53 @@
-/* Flex container */
-.flights-container {
-    display: flex; /* Activate flexbox layout */
-    flex-direction: column;
-    gap: 10px; /* Space between items */
-    border: 2px solid black;
-    padding: 10px;
+
+
+
+/* Main container for the column layout */
+.airport-list {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    gap: 15px; /* Space between rows */
+    /* padding: 20px; */
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
 }
 
-/* Flex items */
-.airport {
-    background-color: lightblue;
-    padding: 20px;
+/* Each row (airport) */
+.airport-item {
+    display: flex;
+    justify-content: space-around; /* Space between name and links */
+    align-items: center; /* Align items vertically */
+    border-bottom: 1px solid #ccc; /* Optional: underline for each row */
+    padding: 10px 0;
+}
+
+/* Left-aligned airport name */
+.airport-name {
+    flex: 1; /* Take up all remaining space on the left */
     text-align: left;
-    border: 1px solid navy;
+    padding: 0 20px 0 0;
 }
 
-.hidden {
-    display: none;
+.airport-link-set {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
+
+/* Right-aligned links */
+.airport-links {
+    display: flex;
+    gap: 10px; /* Space between the links */
+}
+
+/* Links styling */
+.airport-links a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.airport-links a:hover {
+    text-decoration: underline;
+}
+
