@@ -1,6 +1,24 @@
 "use strict";
 
 const GOOGLE_HREF = 'https://www.google.com/search?q=flight+status+';
+const AIRLINES = {
+    'DL': 'Delta',
+    'F9': 'Frontier',
+    'AA': 'American',
+    'UA': 'United',
+    'WN': 'Southwest',
+    'G4': 'Allegiant',
+    'NK': 'Spirit',
+    'KL': 'KLM',
+    'AF': 'Air France',
+    'DE': 'Condor',
+    'LH': 'Lufthansa',
+    'FI': 'Iceland',
+    'SY': 'Sun Country',
+    'WS': 'WestJet',
+    'AS': 'Alaska',
+    'AC': 'Air Canada'
+};
 
 const airportData = [
     { code: "ABR", name: "Aberdeen, South Dakota", airlineCodes: ["DL"], shortName: "Aberdeen" },
@@ -32,6 +50,8 @@ const airportData = [
     { code: "ORD", name: "Chicago, Illinois: O'Hare", airlineCodes: ["DL", "AA", "SY", "UA"], shortName: "Chi O'Hare" },
     { code: "CVG", name: "Cincinnati, Ohio", airlineCodes: ["DL"], shortName: "Cincinnati" },
     { code: "CLE", name: "Cleveland, Ohio", airlineCodes: ["DL"], shortName: "Cleveland" },
+
+
     { code: "COS", name: "Colorado Springs, Colorado", airlineCodes: ["DL"], shortName: "CO Springs" },
     { code: "CMH", name: "Columbus, Ohio", airlineCodes: ["DL"], shortName: "Columbus" },
     { code: "DAL", name: "Dallas, Texas: Love", airlineCodes: ["DL", "WN"], shortName: "Dallas Love" },
@@ -54,7 +74,7 @@ const airportData = [
     { code: "FRA", name: "Frankfurt, Germany", airlineCodes: ["DE", "LH"], shortName: "Frankfurt" },
     { code: "GFK", name: "Grand Forks, North Dakota", airlineCodes: ["DL"], shortName: "Grand Forks" },
     { code: "GRR", name: "Grand Rapids, Michigan", airlineCodes: ["DL"], shortName: "Grand Rapids" },
-    { code: "GTF", name: "Great Fall, Montana", airlineCodes: ["DL"], shortName: "Great Falls" },
+    { code: "GTF", name: "Great Falls, Montana", airlineCodes: ["DL"], shortName: "Great Falls" },
     { code: "GRB", name: "Green Bay, Wisconsin", airlineCodes: ["DL"], shortName: "Green Bay" },
     { code: "GPT", name: "Gulfport / Biloxi, Mississippi", airlineCodes: ["DL"], shortName: "Gulfport" },
     { code: "HRL", name: "Harlingen (South Padre), Texas", airlineCodes: ["DL"], shortName: "South Padre" },
@@ -155,8 +175,7 @@ const airportData = [
     { code: "PBI", name: "West Palm Beach, Florida", airlineCodes: ["DL"], shortName: "West Palm Beach" },
     { code: "ICT", name: "Wichita, Kansas", airlineCodes: ["DL"], shortName: "Wichita" },
     { code: "XWA", name: "Williston, North Dakota", airlineCodes: ["DL"], shortName: "Williston" },
-    { code: "YWG", name: "Winnipeg, Canada", airlineCodes: ["DL"], shortName: "Winnipeg" },
-
+    { code: "YWG", name: "Winnipeg, Canada", airlineCodes: ["DL"], shortName: "Winnipeg" }
 ]
 
 
@@ -193,18 +212,22 @@ const airportListDiv = document.getElementById("airport-list");
 
 // Cycle through array of airports and create HTML elements for each one
 
+// somewhere here
+
+
 airports.forEach((airport) => {
 
     const airportDiv = document.createElement("div");
-    airport.airportDiv = airportDiv; // Store the overall <DIV> for the airport for subsequent hiding or unhiding
+    airport.airportDiv = airportDiv; 
     airportDiv.id = airport.shortName;
     airportDiv.setAttribute("class", "airport-item");
     airportListDiv.appendChild(airportDiv);
 
     const airportNameDiv = document.createElement("div");
     airportNameDiv.setAttribute("class", "airport-name");
-    airportNameDiv.textContent = airport.name + "\u00A0\u00A0\u00A0" + airport.code;
+    airportNameDiv.textContent = airport.name + "\u00A0\u00A0" + airport.code;
     airportDiv.appendChild(airportNameDiv);
+
 
     airport.airlineCodes.forEach((airlineCode) => {
         airport.airlines.push(new AirportAirline(airlineCode));
@@ -214,7 +237,6 @@ airports.forEach((airport) => {
     airportLinkSetDiv.setAttribute("class", "airport-link-set");
     airportDiv.appendChild(airportLinkSetDiv);
 
-    //const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
 
     ["departures", "arrivals"].forEach((direction) => {
         let airportLinksDiv = document.createElement("div");
@@ -222,11 +244,9 @@ airports.forEach((airport) => {
         airportLinkSetDiv.appendChild(airportLinksDiv);
         
         const theLabel = document.createElement('span');
-        // theLabel.textContent = direction.charAt(0).toUpperCase() + direction.slice(1) + ':';
         airportLinksDiv.appendChild(theLabel);
         
         airport.airlines.forEach((airline) => {
-
             const airportLink = document.createElement("a");
             if (direction == "departures") {
                 airportLink.href = GOOGLE_HREF + airline.code + "+MSP+" + airport.code;
@@ -236,7 +256,7 @@ airports.forEach((airport) => {
                 airportLink.href = GOOGLE_HREF + airline.code + "+" + airport.code + "+MSP";
                 airline.arrivalLink = airportLink;
             }
-            airportLink.textContent = airline.code;
+            airportLink.textContent = AIRLINES[airline.code];
             airportLink.target = "_blank";
             airportLink.rel = "noopener noreferrer";
             airportLinksDiv.appendChild(airportLink);
@@ -246,6 +266,15 @@ airports.forEach((airport) => {
     });
 
 })
+
+document.documentElement.lang = 'en'; // Set back to English
+
+// function removeLeadingDigitAndSpace(str) {
+//     return str.replace(/^\d\s/, '');
+// }
+
+// ends here
+
 
 // Set up place to store up to ten keyboard-activated links
 // airportLinkShortcuts = [];
@@ -271,14 +300,15 @@ inputField.addEventListener("input", function (event) {
         if ((airport.code + '|' + airport.name + '|' + airport.shortName).toLowerCase().includes(lowerCaseInput))  {
             airportDiv.style.display = 'flex';
             airport.airlines.forEach((airline) => {
+                const airlineName = AIRLINES[airline.code];
                 if (quickAirlines.length < 10 && lowerCaseInput.length > 0) {
-                    airline.departureLink.textContent = quickAirlines.length + '-' + airline.code;
-                    airline.arrivalLink.textContent =   quickAirlines.length + '-' + airline.code;
+                    airline.departureLink.textContent = quickAirlines.length + ': ' + airlineName;
+                    airline.arrivalLink.textContent =   quickAirlines.length + ': ' + airlineName;
                     quickAirlines.push(airline);
                 }
                 else {
-                    airline.departureLink.textContent = airline.code;
-                    airline.arrivalLink.textContent = airline.code;
+                    airline.departureLink.textContent = airlineName;
+                    airline.arrivalLink.textContent = airlineName;
 
                 }
             });
@@ -353,8 +383,9 @@ document.addEventListener('keydown', (event) => {
         const airportDiv = airport.airportDiv;
         airportDiv.style.display = 'flex';
         airport.airlines.forEach((airline) => {
-            airline.departureLink.textContent = airline.code;
-            airline.arrivalLink.textContent = airline.code;
+            const airlineName = AIRLINES[airline.code];
+            airline.departureLink.textContent = airlineName;
+            airline.arrivalLink.textContent = airlineName;
         });
     });
 

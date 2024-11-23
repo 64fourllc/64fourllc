@@ -138,24 +138,24 @@
     align-items: flex-start;
     color: lightgrey;
     font-style: italic;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
 }
 
 /* Right-aligned links */
 .airport-departures-links {
     display: flex;
-    gap: 10px; /* Space between the links */
+    gap: 25px; /* Space between the links */
 }
 .airport-arrivals-links {
     display: none;
-    gap: 10px; /* Space between the links */
+    gap: 25px; /* Space between the links */
 }
 
 /* Links styling */
 .airport-departures-links a {
     text-decoration: none;
     color: #007BFF;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .airport-departures-links a:hover {
@@ -164,7 +164,7 @@
 .airport-arrivals-links a {
     text-decoration: none;
     color: #ff7700;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .airport-arrivals-links a:hover {
