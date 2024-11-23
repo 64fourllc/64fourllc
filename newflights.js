@@ -1,6 +1,9 @@
 "use strict";
 
+const MOBILE = /Mobi|Android|iPhone|iPad|iPod|Windows Phone|webOS/i.test(navigator.userAgent);
+
 const GOOGLE_HREF = 'https://www.google.com/search?q=flight+status+';
+
 const AIRLINES = {
     'DL': 'Delta',
     'F9': 'Frontier',
@@ -299,19 +302,28 @@ inputField.addEventListener("input", function (event) {
         airportDiv = airport.airportDiv;
         if ((airport.code + '|' + airport.name + '|' + airport.shortName).toLowerCase().includes(lowerCaseInput))  {
             airportDiv.style.display = 'flex';
-            airport.airlines.forEach((airline) => {
-                const airlineName = AIRLINES[airline.code];
-                if (quickAirlines.length < 10 && lowerCaseInput.length > 0) {
-                    airline.departureLink.textContent = quickAirlines.length + ': ' + airlineName;
-                    airline.arrivalLink.textContent =   quickAirlines.length + ': ' + airlineName;
-                    quickAirlines.push(airline);
-                }
-                else {
-                    airline.departureLink.textContent = airlineName;
-                    airline.arrivalLink.textContent = airlineName;
+            
+            if(!MOBILE) {
+                airport.airlines.forEach((airline) => {
+                    const airlineName = AIRLINES[airline.code];
+                    if (quickAirlines.length < 10 && lowerCaseInput.length > 0) {
+                        airline.departureLink.textContent = quickAirlines.length + ': ' + airlineName;
+                        airline.arrivalLink.textContent =   quickAirlines.length + ': ' + airlineName;
+                        quickAirlines.push(airline);
+                    }
+                    else {
+                        airline.departureLink.textContent = airlineName;
+                        airline.arrivalLink.textContent = airlineName;
 
+                    }
+                });
+            }
+            else {
+                if (airport.airlines.length > 0) {
+                    quickAirlines.push(airport.airlines[0]);
                 }
-            });
+            }
+
         }
         else {
             airportDiv.style.display = 'none';
@@ -382,11 +394,13 @@ document.addEventListener('keydown', (event) => {
     airports.forEach((airport) => {
         const airportDiv = airport.airportDiv;
         airportDiv.style.display = 'flex';
-        airport.airlines.forEach((airline) => {
-            const airlineName = AIRLINES[airline.code];
-            airline.departureLink.textContent = airlineName;
-            airline.arrivalLink.textContent = airlineName;
-        });
+        if (!MOBILE) {
+            airport.airlines.forEach((airline) => {
+                const airlineName = AIRLINES[airline.code];
+                airline.departureLink.textContent = airlineName;
+                airline.arrivalLink.textContent = airlineName;
+            });
+        }
     });
 
   }
