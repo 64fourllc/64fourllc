@@ -343,5 +343,20 @@ document.addEventListener('keydown', (event) => {
   
   });
 
+  function clearInput() {
+    const inputField = document.getElementById('filterInput');
+    inputField.value = ''; // 
+    inputField.focus();   
 
+    quickAirlines = [];
+    airports.forEach((airport) => {
+        const airportDiv = airport.airportDiv;
+        airportDiv.style.display = 'flex';
+        airport.airlines.forEach((airline) => {
+            airline.departureLink.textContent = airline.code;
+            airline.arrivalLink.textContent = airline.code;
+        });
+    });
+
+  }
 

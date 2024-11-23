@@ -8,12 +8,23 @@
 </head>
 <body>
     <p>
-        Version 157p
+        Version 243p
     </p>
-    <div class="flex-container">
-        <input class="filter-input" type="text" id="filterInput" placeholder="Type to filter" autofocus>&nbsp;&nbsp;
+
+    <div class="control-container">
+        <div class="input-wrapper">
+          <input id="filterInput" type="text" autocorrect="off" autocomplete="off" spellcheck="false"placeholder="Filter flights" class="filter-input">
+          <span class="clear-button" onclick="clearInput()">✖</span>
+        </div>
         <button id="toggleButton" class="toggle-button">Departures</button>
-    </div>
+      </div>
+    <!-- <div class="controls-container">
+        <div class="filter-container">
+            <input class="filter-input" type="text" id="filterInput" placeholder="Type to filter" autofocus>
+        </div>
+        <span class="clear-button">x</span>
+        <button id="toggleButton" class="toggle-button">Departures</button>
+    </div> -->
      <br><hr>
     <!-- <p id="output"></p> -->
     <!-- <div id="flights" class="flights-container"></div> -->

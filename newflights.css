@@ -1,23 +1,107 @@
-.flex-container {
+
+.control-container {
     display: flex;
-    align-items: stretch; /* Align items vertically in the center */
-    gap: 5px; /* Add some spacing between the input and the button */
-    width: 100%; /* Make the container span full width */
+    gap: 10px; /* Spacing between input field and button */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%; /* Full width container */
   }
   
-  .flex-input {
-    flex: 1; /* Input takes up the remaining space */
-    padding: 5px; /* Add some padding for better appearance */
-    font-size: 16px; /* Adjust font size for readability */
+  .input-wrapper {
+    position: relative;
+    flex: 1; /* Input wrapper takes remaining space */
   }
   
-  .flex-button {
+  .filter-input {
+    width: 100%; /* Input field fills the wrapper */
+    padding-left: 10px;
+    padding-right: 25px; /* Space for the clear button inside */
+    font-size: 16px;
+    height: 35px;
+    box-sizing: border-box; /* Include padding in width/height calculations */
+  }
+  
+  .clear-button {
+    position: absolute;
+    right: 8px; /* Position clear button inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    cursor: pointer;
+    visibility: hidden; /* Initially hidden */
+    color: gray;
+  }
+  
+  .filter-input:focus + .clear-button,
+  .filter-input:not(:placeholder-shown) + .clear-button {
+    visibility: visible; /* Show clear button when input is focused or has text */
+  }
+  
+  .toggle-button {
     width: 120px; /* Fixed width for the button */
-    padding: 5px; /* Add padding for better appearance */
-    font-size: 14px; /* Adjust font size */
-    text-align: center; /* Center text within the button */
-    cursor: pointer; /* Change cursor to pointer for better UX */
+    height: 35px; /* Match the height of the input field */
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #0073e6;
+    border: 2px solid #0073e6;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
   }
+
+  .toggle-button.arrivals {
+    background-color: #ff7700;
+    border: 2px solid #ff7700;
+  }
+  
+  .toggle-button:hover {
+    opacity: 0.8;
+  }
+
+/* .controls-container {
+    display: flex;
+    align-items: stretch; 
+    gap: 5px; 
+    width: 100%; 
+}
+  
+.filter-container {
+    
+}
+
+
+.filter-input {
+    padding: 5px 5px;
+    padding-right: 25px;
+    width: 120px;
+    border: 1px solid gray;
+    flex: 1;
+    font-size: 14px; 
+} 
+
+
+.toggle-button {
+    padding: 5px 15px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #0073e6;
+    border: 2px solid #0073e6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .toggle-button.arrivals {
+    background-color: #ff7700;
+    border: 2px solid #ff7700;
+  }
+  
+  .toggle-button:hover {
+    opacity: 0.8;
+  } */
 
 
 /* Main container for the column layout */
@@ -86,54 +170,3 @@
 .airport-arrivals-links a:hover {
     text-decoration: underline;
 }
-
-.filter-input {
-    padding: 5px 5px;
-    width: 120px;
-    border: 1px solid gray;
-    /* height: 30px; */
-    flex: 1;
-    font-size: 14px; /* Adjust font size for readability */
-}
-
-
-
-.toggle-button {
-    padding: 5px 15px;
-    width: 100px;
-    /* height: 30px; */
-    /* font-size: 8px; */
-    border-radius: 5px;
-    background-color: #0073e6;
-    border: 2px solid #0073e6;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .toggle-button.arrivals {
-    background-color: #ff7700;
-    border: 2px solid #ff7700;
-  }
-  
-  .toggle-button:hover {
-    opacity: 0.8;
-  }
-
-  input[type="search"]::-webkit-search-cancel-button {
-
-    /* Remove default */
-    -webkit-appearance: none;
-  
-    /* Now your own custom styles */
-     height: 14px;
-     width: 14px;
-     display: block;
-     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
-    /* setup all the background tweaks for our custom icon */
-    background-repeat: no-repeat;
-  
-    /* icon size */
-    background-size: 14px;
-  
-  }
