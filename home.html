@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- PT Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    
+    <style>
+        html, body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+
+        }
+    }
+        .top-middle-bottom-container {
+            display: flex;
+            flex-direction: column;
+            /* height: 100%; */
+            padding:
+        }
+        .top-item, .middle-item, .bottom-item {
+            /* border: 1px solid red; */
+            padding: 5px;
+            box-sizing: border-box; /* Ensures padding is inside the border */
+            margin: 2px 0;
+        }
+        .top-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%; /* Example height */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: slategray; /* Background color for trapezoid */
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+            z-index: -1; /* Places the background behind the content */
+        }
+        .top-left {
+            flex: 1; /* Each column takes equal horizontal space */
+            text-align: center;
+            padding: 10px;
+            color: white;
+            /* border: 1px solid red; */
+            padding-left: 40px;
+        }
+        .top-left img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .top-right {
+            flex: 2; /* Each column takes equal horizontal space */
+            text-align: center;
+            padding-right: 40px;
+            padding-left: 0px;
+            /* border: 1px solid red; */
+
+
+        }
+        .about-me {
+            color: black;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow */
+            border: 1px solid #ddd; /* Optional: Border for definition */
+        }
+        /* .bottom-item {
+            flex-grow: 1;
+        } */
+        .bottom-item {
+            display: flex;
+            height: 100vh;
+            padding: 20px;
+            background-color: slategray;
+        }
+        .bottom-left {
+            flex: 0 0 40%;
+            /* padding: 30px; */
+            /* font-family: "PT Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal; */
+            color: white;
+        }
+        .bottom-right {
+            flex: 0 0 60%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            /* padding: 30px; */
+        }
+        .bottom-right img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="top-middle-bottom-container">
+        <div class="top-item">
+            <div class="top-left">
+                <img src="me.jpeg">
+            </div>
+            <div class="top-right">
+                <div class="about-me">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, neque omnis voluptate enim odio earum eum explicabo natus, vero, deleniti cumque dolorum accusantium amet minus. Voluptatibus temporibus maiores numquam doloribus!                
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis in nisi quas sint ad modi exercitationem quidem accusantium delectus! Consequuntur sint libero fuga eligendi quasi expedita autem minima ut voluptatum.
+                </div>
+            </div>
+    
+        </div>
+        <div class="middle-item">
+            This is the middle.
+            <br>
+            This is more middle.
+        </div>
+        <div class="bottom-item">
+            <div class="bottom-left">
+                <p>
+                    Contact me
+                </p>
+                <p>
+                    Please get in touch if you think our work could be mutually beneficial.
+                </p>
+                <p>
+                    +1 303-408-4712
+                </p>
+                <p>
+                    rob.norris@64-four.com                    
+                </p>
+            </div>
+            <div class="bottom-right">
+                <img src="couple.jpeg" alt="Right Column Image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

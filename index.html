@@ -3,16 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="newflights.css">
+    <title>Material Design Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
 </head>
 <body>
-    <p></p>
-    <p><input type="search" id="filterInput" placeholder="Filter" /></p>
-    <p id="output"></p>
-    <div id="flights" class="flights-container"></div>
-    <script src="newflights.js"></script>
-    Goodbye, world.
-  
+    
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo center">My Website</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="section center-align">
+        <h1>Welcome to Material Design</h1>
+        <p class="flow-text">A clean and modern theme for your website.</p>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Feature 1</span>
+                        <p>Some interesting information about feature 1.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Feature 2</span>
+                        <p>Some interesting information about feature 2.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer blue">
+        <div class="container">
+            <p class="center-align">© 2024 My Material Design Website</p>
+        </div>
+    </footer>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
