@@ -20,6 +20,9 @@ const AIRLINES = {
     'SY': 'Sun Country',
     'WS': 'WestJet',
     'AS': 'Alaska',
+    '4Y': 'Discover',
+    'EI': 'Aer Lingus',
+    'KG': 'Denver Air Connection',
     'AC': 'Air Canada'
 };
 
@@ -69,6 +72,9 @@ const airportData = [
     { code: "ESC", name: "Escanaba, Michigan", airlineCodes: ["DL"], shortName: "Escanaba" },
     { code: "FAI", name: "Fairbanks, Alaska", airlineCodes: ["DL"], shortName: "Fairbanks" },
     { code: "FAR", name: "Fargo, North Dakota", airlineCodes: ["DL"], shortName: "Fargo" },
+    { code: "FCO", name: "Rome, Italy", airlineCodes: ["DL"], shortName: "Rome" },
+    { code: "CPH", name: "Copenhagen, Denmark", airlineCodes: ["DL"], shortName:
+    "Copenhagen" },
     { code: "XNA", name: "Fayetteville, North Carolina", airlineCodes: ["DL"], shortName: "Fayetteville" },
     { code: "FLL", name: "Fort Lauderdale, Florida", airlineCodes: ["DL"], shortName: "Fort Lauderdale" },
     { code: "RSW", name: "Fort Myers, Florida", airlineCodes: ["DL"], shortName: "Fort Myers" },
@@ -88,7 +94,7 @@ const airportData = [
     { code: "HOU", name: "Houston, Texas: Hobby", airlineCodes: ["SY"], shortName: "Houston Hobby" },
     { code: "IND", name: "Indianapolis, Indiana", airlineCodes: ["DL"], shortName: "Indianapolis" },
     { code: "INL", name: "International Falls, Minnesota", airlineCodes: ["DL"], shortName: "International Falls" },
-    { code: "IMT", name: "Iron Mountain, Michigan", airlineCodes: ["DL"], shortName: "Iron Mountain" },
+    { code: "IMT", name: "Iron Mountain, Michigan", airlineCodes: ["DL", "KG"], shortName: "Iron Mountain" },
     { code: "IWD", name: "Ironwood (Gogebic County), Michigan", airlineCodes: ["DL"], shortName: "Ironwood" },
     { code: "JAC", name: "Jackson Hole, Wyoming", airlineCodes: ["DL"], shortName: "Jackson Hole" },
     { code: "JAX", name: "Jacksonville, Florida", airlineCodes: ["DL"], shortName: "Jacksonville" },
@@ -167,7 +173,8 @@ const airportData = [
     { code: "PIE", name: "St. Petersburg, Florida", airlineCodes: ["DL"], shortName: "St Petersburg" },
     { code: "SYR", name: "Syracuse, New York", airlineCodes: ["DL"], shortName: "Syracuse" },
     { code: "TPA", name: "Tampa, Florida", airlineCodes: ["DL"], shortName: "Tampa" },
-    { code: "TVF", name: "Thief River Falls, Minnesota", airlineCodes: ["DL"], shortName: "Thief River Falls" },
+    { code: "TVF", name: "Thief River Falls, Minnesota", airlineCodes: ["DL",
+    "KG"], shortName: "Thief River Falls" },
     { code: "HND", name: "Tokyo, Japan", airlineCodes: ["DL"], shortName: "Tokyo" },
     { code: "YYZ", name: "Toronto, Canada", airlineCodes: ["DL", "AC"], shortName: "Toronto" },
     { code: "TVC", name: "Traverse City, Michigan", airlineCodes: ["DL"], shortName: "Traverse City" },
