@@ -60,6 +60,7 @@ const airportData = [
 
     { code: "COS", name: "Colorado Springs, Colorado", airlineCodes: ["DL"], shortName: "CO Springs" },
     { code: "CMH", name: "Columbus, Ohio", airlineCodes: ["DL"], shortName: "Columbus" },
+    { code: "CPH", name: "Copenhagen, Denmark", airlineCodes: ["DL"], shortName: "Copenhagen" },
     { code: "DAL", name: "Dallas, Texas: Love", airlineCodes: ["DL", "WN"], shortName: "Dallas Love" },
     { code: "DFW", name: "Dallas–Fort Worth, Texas", airlineCodes: ["DL", "AA", "F9"], shortName: "Dallas DFW" },
     { code: "DEN", name: "Denver, Colorado", airlineCodes: ["DL", "F9", "SY", "UA", "WN"], shortName: "Denver" },
@@ -72,9 +73,6 @@ const airportData = [
     { code: "ESC", name: "Escanaba, Michigan", airlineCodes: ["DL"], shortName: "Escanaba" },
     { code: "FAI", name: "Fairbanks, Alaska", airlineCodes: ["DL"], shortName: "Fairbanks" },
     { code: "FAR", name: "Fargo, North Dakota", airlineCodes: ["DL"], shortName: "Fargo" },
-    { code: "FCO", name: "Rome, Italy", airlineCodes: ["DL"], shortName: "Rome" },
-    { code: "CPH", name: "Copenhagen, Denmark", airlineCodes: ["DL"], shortName:
-    "Copenhagen" },
     { code: "XNA", name: "Fayetteville, North Carolina", airlineCodes: ["DL"], shortName: "Fayetteville" },
     { code: "FLL", name: "Fort Lauderdale, Florida", airlineCodes: ["DL"], shortName: "Fort Lauderdale" },
     { code: "RSW", name: "Fort Myers, Florida", airlineCodes: ["DL"], shortName: "Fort Myers" },
@@ -109,6 +107,7 @@ const airportData = [
     { code: "SDF", name: "Louisville, Kentucky", airlineCodes: ["DL"], shortName: "Louisville" },
     { code: "LBB", name: "Lubbock, Texas", airlineCodes: ["DL"], shortName: "Lubbock" },
     { code: "MSN", name: "Madison, Wisconsin", airlineCodes: ["DL"], shortName: "Madison" },
+    { code: "MQT", name: "Marquette, Michigan", airlineCodes: ["DL"], shortName: "Marquette" },
     { code: "MEM", name: "Memphis, Tennessee", airlineCodes: ["DL"], shortName: "Memphis" },
     { code: "MEX", name: "Mexico City, Mexico", airlineCodes: ["DL"], shortName: "Mexico City" },
     { code: "MIA", name: "Miami, Florida", airlineCodes: ["DL", "AA", "SY"], shortName: "Miami" },
@@ -151,6 +150,7 @@ const airportData = [
     { code: "RIC", name: "Richmond, Virginia", airlineCodes: ["DL"], shortName: "Richmond" },
     { code: "RST", name: "Rochester, Minnesota", airlineCodes: ["DL"], shortName: "Rochester (MN)" },
     { code: "ROC", name: "Rochester, New York", airlineCodes: ["DL"], shortName: "Rochester (NY)" },
+    { code: "FCO", name: "Rome, Italy", airlineCodes: ["DL"], shortName: "Rome" },
     { code: "ROW", name: "Roswell, New Mexico", airlineCodes: ["DL"], shortName: "Roswell" },
     { code: "SMF", name: "Sacramento, California", airlineCodes: ["DL"], shortName: "Sacramento" },
     { code: "SLC", name: "Salt Lake City, Utah", airlineCodes: ["DL"], shortName: "Salt Lake City" },
